@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>اقضيها – اختيار المكان</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0F4C5C}a:hover{color:#0A3540}
+input::placeholder{color:#8A949A}
+</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; background: #ECEEE7; font-family: 'Cairo', sans-serif; color: #1F2A30; position: relative; overflow: hidden">
+
+<svg width="390" height="844" viewBox="0 0 390 844" aria-hidden="true" style="position: absolute; top: 0; left: 0">
+<rect width="390" height="844" fill="#ECEEE7"></rect>
+<rect x="250" y="120" width="160" height="150" rx="8" fill="#D4E8CC"></rect>
+<path d="M-10 640 C 80 610, 160 680, 260 650 S 390 600, 400 620 L400 700 L-10 720 Z" fill="#CFE3EE"></path>
+<rect x="20" y="140" width="90" height="80" rx="6" fill="#E0E2DA"></rect>
+<rect x="130" y="140" width="90" height="80" rx="6" fill="#E0E2DA"></rect>
+<rect x="20" y="260" width="90" height="110" rx="6" fill="#E0E2DA"></rect>
+<rect x="130" y="260" width="90" height="110" rx="6" fill="#E0E2DA"></rect>
+<rect x="250" y="300" width="130" height="70" rx="6" fill="#E0E2DA"></rect>
+<rect x="20" y="410" width="90" height="90" rx="6" fill="#E0E2DA"></rect>
+<rect x="130" y="410" width="90" height="90" rx="6" fill="#E0E2DA"></rect>
+<rect x="250" y="410" width="130" height="90" rx="6" fill="#E0E2DA"></rect>
+<rect x="20" y="530" width="200" height="60" rx="6" fill="#E0E2DA"></rect>
+<rect x="250" y="530" width="130" height="60" rx="6" fill="#E0E2DA"></rect>
+<path d="M0 240 H390" stroke="#FFFFFF" stroke-width="16"></path>
+<path d="M0 390 H390" stroke="#FFE6A3" stroke-width="22"></path>
+<path d="M0 515 H390" stroke="#FFFFFF" stroke-width="14"></path>
+<path d="M120 100 V610" stroke="#FFFFFF" stroke-width="14"></path>
+<path d="M235 100 V610" stroke="#FFFFFF" stroke-width="18"></path>
+<text x="60" y="395" font-family="Cairo, sans-serif" font-size="11" fill="#8A6A1A">ش. الجمهورية</text>
+<text x="300" y="245" font-family="Cairo, sans-serif" font-size="10" fill="#7A8580">ش. النصر</text>
+<text x="290" y="200" font-family="Cairo, sans-serif" font-size="11" fill="#4C7A3F">جنينة الحي</text>
+</svg>
+
+<div style="position: absolute; top: 50px; left: 16px; right: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; gap: 10px">
+<a href="AnyOrder.dc.html" aria-label="رجوع" style="width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 14px; background: #FFFFFF; text-decoration: none; box-shadow: 0 2px 8px rgba(15,76,92,0.15)">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F2A30" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+</a>
+<div style="flex: 1; position: relative">
+<label for="mapSearch" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">دوّر على شارع أو مكان</label>
+<input id="mapSearch" type="search" placeholder="دوّر على شارع أو مكان" style="width: 100%; height: 48px; box-sizing: border-box; padding: 0 44px 0 14px; background: #FFFFFF; border: none; border-radius: 14px; font-family: 'Cairo', sans-serif; font-size: 15px; color: #1F2A30; outline: none; box-shadow: 0 2px 8px rgba(15,76,92,0.15)">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6770" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; right: 14px; top: 14px"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; padding: 4px; background: #FFFFFF; border-radius: 14px; box-shadow: 0 2px 8px rgba(15,76,92,0.15)">
+<button type="button" onClick="{{pickStart}}" style="{{startStyle}}">نقطة البداية</button>
+<button type="button" onClick="{{pickEnd}}" style="{{endStyle}}">نقطة التوصيل</button>
+</div>
+</div>
+
+<div style="position: absolute; top: 300px; left: 155px; width: 80px; display: flex; flex-direction: column; align-items: center">
+<span style="padding: 4px 10px; background: #1F2A30; border-radius: 8px; font-size: 12px; font-weight: 700; color: #FFFFFF; white-space: nowrap">{{pinLabel}}</span>
+<svg width="44" height="56" viewBox="0 0 24 30" aria-hidden="true" style="margin-top: 4px"><path d="M12 29s-11-9.5-11-17A11 11 0 0 1 23 12c0 7.5-11 17-11 17z" fill="{{pinColor}}"></path><circle cx="12" cy="12" r="4.5" fill="{{pinDot}}"></circle></svg>
+<span style="width: 14px; height: 5px; margin-top: 2px; border-radius: 50%; background: rgba(31,42,48,0.25)"></span>
+</div>
+
+<button type="button" aria-label="استخدم مكاني الحالي" style="position: absolute; left: 16px; top: 430px; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: none; border-radius: 50%; cursor: pointer; box-shadow: 0 2px 8px rgba(15,76,92,0.2)">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F4C5C" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path></svg>
+</button>
+
+<div style="position: absolute; left: 0; right: 0; bottom: 0; background: #FFFFFF; border-radius: 26px 26px 0 0; padding: 10px 20px 28px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 -4px 16px rgba(15,76,92,0.12)">
+<span style="align-self: center; width: 40px; height: 5px; border-radius: 3px; background: #D9D6CE"></span>
+<div style="display: flex; align-items: center; gap: 12px">
+<span style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 14px; background: #FFF1CC; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8A5A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
+</span>
+<span style="flex: 1; display: flex; flex-direction: column">
+<span style="font-size: 16px; font-weight: 700; color: #1F2A30">{{sheetTitle}}</span>
+<span style="font-size: 13px; color: #5B6770">ش. الجمهورية، قدام جنينة الحي</span>
+</span>
+</div>
+<sc-if value="{{isEnd}}" hint-placeholder-val="{{ true }}">
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<input aria-label="رقم العمارة" placeholder="العمارة" style="height: 46px; box-sizing: border-box; padding: 0 10px; background: #F7F5F0; border: 1px solid #D9D6CE; border-radius: 12px; font-family: 'Cairo', sans-serif; font-size: 14px; text-align: center; color: #1F2A30; outline: none">
+<input aria-label="الدور" placeholder="الدور" style="height: 46px; box-sizing: border-box; padding: 0 10px; background: #F7F5F0; border: 1px solid #D9D6CE; border-radius: 12px; font-family: 'Cairo', sans-serif; font-size: 14px; text-align: center; color: #1F2A30; outline: none">
+<input aria-label="الشقة" placeholder="الشقة" style="height: 46px; box-sizing: border-box; padding: 0 10px; background: #F7F5F0; border: 1px solid #D9D6CE; border-radius: 12px; font-family: 'Cairo', sans-serif; font-size: 14px; text-align: center; color: #1F2A30; outline: none">
+</div>
+<input aria-label="علامة مميزة" placeholder="علامة مميزة (اختياري) – مثلاً: جنب الصيدلية" style="height: 46px; box-sizing: border-box; padding: 0 14px; background: #F7F5F0; border: 1px solid #D9D6CE; border-radius: 12px; font-family: 'Cairo', sans-serif; font-size: 14px; color: #1F2A30; outline: none">
+</sc-if>
+<sc-if value="{{isStart}}" hint-placeholder-val="{{ false }}">
+<input aria-label="اسم المكان" placeholder="اسم المكان (اختياري) – مثلاً: كشك عم محمد" style="height: 46px; box-sizing: border-box; padding: 0 14px; background: #F7F5F0; border: 1px solid #D9D6CE; border-radius: 12px; font-family: 'Cairo', sans-serif; font-size: 14px; color: #1F2A30; outline: none">
+</sc-if>
+<a href="AnyOrder.dc.html" style="height: 56px; display: flex; align-items: center; justify-content: center; background: #FFB703; border-radius: 16px; font-size: 17px; font-weight: 800; color: #3A2A00; text-decoration: none">{{confirmLabel}}</a>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { mode: 'end' }; }
+  renderVals() {
+    const end = this.state.mode === 'end';
+    const seg = (on) => 'height: 40px; border-radius: 10px; border: none; font-family: Cairo, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; ' + (on ? 'background: #0F4C5C; color: #FFFFFF;' : 'background: transparent; color: #5B6770;');
+    return {
+      isEnd: end,
+      isStart: !end,
+      startStyle: seg(!end),
+      endStyle: seg(end),
+      pickStart: () => this.setState({ mode: 'start' }),
+      pickEnd: () => this.setState({ mode: 'end' }),
+      pinLabel: end ? 'التوصيل هنا' : 'الشراء من هنا',
+      pinColor: end ? '#FFB703' : '#0F4C5C',
+      pinDot: end ? '#0F4C5C' : '#FFFFFF',
+      sheetTitle: end ? 'هنوصّلك هنا' : 'المندوب هيشتري من هنا',
+      confirmLabel: end ? 'تأكيد مكان التوصيل' : 'تأكيد مكان الشراء'
+    };
+  }
+}
+</script>
+</body>
+</html>

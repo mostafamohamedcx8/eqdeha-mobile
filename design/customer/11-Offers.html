@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>اقضيها – عروض المناديب</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0F4C5C}a:hover{color:#0A3540}
+</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F5F0; font-family: 'Cairo', sans-serif; color: #1F2A30; display: flex; flex-direction: column; overflow: hidden">
+
+<div style="background: #0F4C5C; padding: 50px 16px 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 12px">
+<a href="AnyOrder.dc.html" aria-label="رجوع" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #1A5E70; text-decoration: none">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+</a>
+<div style="display: flex; flex-direction: column">
+<h1 style="margin: 0; font-size: 20px; font-weight: 700; color: #FFFFFF">عروض المناديب</h1>
+<p style="margin: 0; font-size: 12px; color: #CFE6EA">أوردر #١٠٤٢ · طلبك اتبعت للمناديب القريبين</p>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: #1A5E70; border-radius: 14px">
+<span style="flex: 1; display: flex; flex-direction: column">
+<span style="font-size: 12px; color: #CFE6EA">عرضك لسعر التوصيل</span>
+<span style="font-size: 22px; font-weight: 800; color: #FFFFFF">١٥ ج</span>
+</span>
+<span style="display: flex; flex-direction: column; align-items: flex-end">
+<span style="font-size: 12px; color: #CFE6EA">طلبك</span>
+<span style="font-size: 13px; font-weight: 600; color: #FFFFFF">سجاير وشيبسي ومية</span>
+</span>
+</div>
+</div>
+
+<div style="flex: 1; overflow-y: auto; overflow-x: hidden; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+
+<div style="display: flex; align-items: center; gap: 10px">
+<span style="width: 10px; height: 10px; border-radius: 50%; background: #2A9D8F; box-shadow: 0 0 0 4px #DDF1EE"></span>
+<p style="margin: 0; font-size: 14px; font-weight: 700; color: #1F2A30">{{countLabel}}</p>
+</div>
+
+<sc-for list="{{offers}}" as="o" hint-placeholder-count="3">
+<div style="background: #FFFFFF; border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; gap: 12px">
+<span style="{{o.avatarStyle}}">{{o.initial}}</span>
+<span style="flex: 1; display: flex; flex-direction: column">
+<span style="font-size: 16px; font-weight: 700; color: #1F2A30">{{o.name}}</span>
+<span style="display: flex; align-items: center; gap: 4px; font-size: 12px; color: #5B6770">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="#FFB703" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>
+{{o.rating}} · {{o.trips}} مشوار · {{o.eta}}
+</span>
+<a href="CourierReviews.dc.html" style="font-size: 12px; font-weight: 700; color: #0F4C5C">شوف التقييمات</a>
+</span>
+<span style="display: flex; flex-direction: column; align-items: flex-end">
+<span style="font-size: 22px; font-weight: 800; color: #1F2A30">{{o.price}} ج</span>
+<span style="{{o.tagStyle}}">{{o.tag}}</span>
+</span>
+</div>
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 8px">
+<a href="Tracking.dc.html" style="height: 46px; display: flex; align-items: center; justify-content: center; background: #FFB703; border-radius: 12px; font-size: 15px; font-weight: 800; color: #3A2A00; text-decoration: none">{{o.acceptLabel}}</a>
+<button type="button" onClick="{{o.reject}}" style="height: 46px; background: #FFFFFF; border: 1px solid #D9D6CE; border-radius: 12px; font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700; color: #5B6770; cursor: pointer">رفض</button>
+</div>
+</div>
+</sc-for>
+
+<div style="background: #FFFFFF; border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; color: #1F2A30">محدش عاجبك؟ زوّد عرضك</p>
+<div style="display: flex; gap: 8px">
+<sc-for list="{{bumps}}" as="b" hint-placeholder-count="3">
+<button type="button" onClick="{{b.pick}}" style="{{b.style}}">{{b.label}}</button>
+</sc-for>
+</div>
+<p style="margin: 0; font-size: 12px; color: #5B6770">العرض الجديد بيوصل لكل المناديب القريبين تاني</p>
+</div>
+
+<button type="button" style="height: 48px; background: transparent; border: 1px solid #E63946; border-radius: 14px; font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 700; color: #C1121F; cursor: pointer">إلغاء الطلب</button>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { gone: [], bump: 0 }; }
+  renderVals() {
+    const list = [
+      { id: 1, name: 'محمود سعيد', initial: 'م', rating: '٤٫٩', trips: '٢١٠', eta: 'على بعد ٤ دقايق', price: '١٥', same: true, bg: '#E1EEF0', fg: '#0F4C5C' },
+      { id: 2, name: 'كريم عادل', initial: 'ك', rating: '٤٫٧', trips: '٨٥', eta: 'على بعد دقيقتين', price: '٢٠', same: false, bg: '#FFF1CC', fg: '#8A5A00' },
+      { id: 3, name: 'أحمد فتحي', initial: 'أ', rating: '٤٫٨', trips: '١٤٠', eta: 'على بعد ٦ دقايق', price: '١٨', same: false, bg: '#EEEDFE', fg: '#534AB7' }
+    ];
+    const gone = this.state.gone;
+    const offers = list.filter((o) => gone.indexOf(o.id) === -1).map((o) => ({
+      name: o.name, initial: o.initial, rating: o.rating, trips: o.trips, eta: o.eta, price: o.price,
+      tag: o.same ? 'موافق على سعرك' : 'عرض سعر تاني',
+      tagStyle: 'font-size: 11px; font-weight: 700; padding: 1px 8px; border-radius: 999px; ' + (o.same ? 'background: #DDF1EE; color: #1B6B61;' : 'background: #FFF1CC; color: #5C4300;'),
+      acceptLabel: 'قبول بـ ' + o.price + ' ج',
+      avatarStyle: 'width: 50px; height: 50px; flex-shrink: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; background: ' + o.bg + '; color: ' + o.fg + ';',
+      reject: () => this.setState({ gone: gone.concat([o.id]) })
+    }));
+    const toAr = (x) => String(x).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[d]);
+    const bump = this.state.bump;
+    return {
+      offers: offers,
+      countLabel: offers.length ? 'وصلك ' + toAr(offers.length) + ' عروض لحد دلوقتي' : 'مستنيين عروض جديدة...',
+      bumps: [17, 20, 25].map((v) => ({
+        label: toAr(v) + ' ج',
+        pick: () => this.setState({ bump: v }),
+        style: 'flex: 1; height: 42px; border-radius: 12px; font-family: Cairo, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; ' + (bump === v ? 'background: #0F4C5C; color: #FFFFFF; border: 1px solid #0F4C5C;' : 'background: #F7F5F0; color: #1F2A30; border: 1px solid #D9D6CE;')
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>اقضيها – الفاتورة النهائية</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0F4C5C}a:hover{color:#0A3540}
+</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F5F0; font-family: 'Cairo', sans-serif; color: #1F2A30; display: flex; flex-direction: column; overflow: hidden">
+
+<div style="background: #0F4C5C; padding: 50px 16px 18px; display: flex; align-items: center; gap: 12px">
+<a href="Tracking.dc.html" aria-label="رجوع" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #1A5E70; text-decoration: none">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+</a>
+<div style="flex: 1; display: flex; flex-direction: column">
+<h1 style="margin: 0; font-size: 20px; font-weight: 700; color: #FFFFFF">الفاتورة النهائية</h1>
+<p style="margin: 0; font-size: 12px; color: #CFE6EA">أوردر #١٠٤٢ · ٦ نوفمبر ٢٠٢٦</p>
+</div>
+</div>
+
+<div style="flex: 1; overflow-y: auto; overflow-x: hidden; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+
+<div style="background: #FFFFFF; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; font-weight: 800; color: #0F4C5C">١. مشويات أبو علي</span><span style="font-size: 11px; font-weight: 700; padding: 1px 8px; border-radius: 999px; background: #DDF1EE; color: #1B6B61">اتشترت</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #5B6770"><span>نص كيلو كفتة</span><span>١٢٠ ج</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #5B6770"><span>ربع فراخ بانيه</span><span>٦٥ ج</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #5B6770"><span>عيش × ٥</span><span>١٠ ج</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px; font-weight: 700"><span>إجمالي المحل</span><span>١٩٥ ج</span></div>
+
+<div style="height: 1px; margin: 6px 0; border-top: 1px dashed #D9D6CE"></div>
+
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; font-weight: 800; color: #0F4C5C">٢. سوبر ماركت الأمانة</span><span style="font-size: 11px; font-weight: 700; padding: 1px 8px; border-radius: 999px; background: #DDF1EE; color: #1B6B61">اتشترت</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #5B6770"><span>لبن × ٢</span><span>٤٠ ج</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #5B6770"><span>سكر ١ كيلو</span><span>٣٥ ج</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px; font-weight: 700"><span>إجمالي المحل</span><span>٧٥ ج</span></div>
+
+<div style="height: 1px; margin: 6px 0; border-top: 1px dashed #D9D6CE"></div>
+
+<div style="display: flex; justify-content: space-between; font-size: 14px; color: #5B6770"><span>تمن الحاجات</span><span>٢٧٠ ج</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px; color: #5B6770"><span>التوصيل (محلين: ١٥ + ٥)</span><span>٢٠ ج</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px; padding: 12px 14px; background: #F7F5F0; border-radius: 12px"><span style="font-size: 16px; font-weight: 800">المطلوب</span><span style="font-size: 24px; font-weight: 800; color: #0F4C5C">{{due}} ج</span></div>
+</div>
+
+<div style="background: #FFFFFF; border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; color: #1F2A30">هتدفع إزاي؟</p>
+<sc-for list="{{methods}}" as="m" hint-placeholder-count="3">
+<button type="button" onClick="{{m.pick}}" style="{{m.style}}">
+<span style="{{m.radio}}"></span>
+<span style="flex: 1; display: flex; flex-direction: column; align-items: flex-start; text-align: right">
+<span style="font-size: 15px; font-weight: 700; color: #1F2A30">{{m.title}}</span>
+<span style="font-size: 12px; color: #5B6770">{{m.sub}}</span>
+</span>
+</button>
+</sc-for>
+
+<sc-if value="{{isTransfer}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 12px; background: #F7F5F0; border-radius: 14px">
+<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #1F2A30">حوّل <b>{{due}} ج</b> للمندوب محمود على محفظته:</p>
+<div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #FFFFFF; border-radius: 12px">
+<span style="width: 36px; height: 36px; border-radius: 10px; background: #FBE3E4; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: #A32D2D">VC</span>
+<span style="flex: 1; display: flex; flex-direction: column"><span style="font-size: 12px; color: #5B6770">فودافون كاش · محمود سعيد</span><span dir="ltr" style="font-size: 16px; font-weight: 800; text-align: right">٠١١ ٢٢٣٣ ٤٤٥٥</span></span>
+<button type="button" style="height: 34px; padding: 0 12px; background: #FFFFFF; border: 1px solid #D9D6CE; border-radius: 10px; font-family: 'Cairo', sans-serif; font-size: 12px; font-weight: 700; color: #0F4C5C; cursor: pointer">نسخ</button>
+</div>
+<a href="Chat.dc.html" style="font-size: 13px; font-weight: 700">ابعتله سكرين التحويل في الشات</a>
+<p style="margin: 0; font-size: 12px; color: #5B6770">الفلوس بتروح للمندوب مباشرة، والتطبيق مالوش دعوة بيها.</p>
+</div>
+</sc-if>
+</div>
+
+</div>
+
+<div style="padding: 12px 16px 28px; background: #FFFFFF; border-top: 1px solid #E6E2D8">
+<a href="Delivered.dc.html" style="height: 56px; display: flex; align-items: center; justify-content: center; background: #FFB703; border-radius: 16px; font-size: 17px; font-weight: 800; color: #3A2A00; text-decoration: none">{{cta}}</a>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { pay: 'cash' }; }
+  renderVals() {
+    const pay = this.state.pay;
+    const list = [
+      { id: 'cash', title: 'كاش للمندوب', sub: 'تدفع الفاتورة كلها وقت الاستلام' },
+      { id: 'transfer', title: 'تحويل لمحفظة المندوب', sub: 'فودافون كاش أو إنستاباي على رقم محمود' }
+    ];
+    return {
+      isTransfer: pay === 'transfer',
+      due: '٢٩٠',
+      cta: pay === 'transfer' ? 'حوّلت للمندوب' : 'تمام، هدفع كاش عند الاستلام',
+      methods: list.map((m) => {
+        const on = m.id === pay;
+        return {
+          title: m.title, sub: m.sub,
+          pick: () => this.setState({ pay: m.id }),
+          style: 'display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 14px; cursor: pointer; font-family: Cairo, sans-serif; ' + (on ? 'background: #E1EEF0; border: 2px solid #0F4C5C;' : 'background: #FFFFFF; border: 1px solid #D9D6CE;'),
+          radio: 'width: 20px; height: 20px; flex-shrink: 0; box-sizing: border-box; border-radius: 50%; ' + (on ? 'border: 6px solid #0F4C5C; background: #FFFFFF;' : 'border: 2px solid #D9D6CE;')
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

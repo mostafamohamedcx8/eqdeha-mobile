@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>اقضيها للمناديب – المراجعة</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0F4C5C}a:hover{color:#0A3540}
+</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F5F0; font-family: 'Cairo', sans-serif; color: #1F2A30; display: flex; flex-direction: column; padding: 52px 20px 28px; gap: 16px; overflow: hidden">
+
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 4px; background: #E6E2D8; border-radius: 12px">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+<button type="button" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}</button>
+</sc-for>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; padding-top: 8px">
+<span style="{{ringStyle}}">
+<span style="{{coreStyle}}">{{glyph}}</span>
+</span>
+<h1 style="margin: 0; font-size: 23px; font-weight: 800">{{title}}</h1>
+<p style="margin: 0; font-size: 15px; line-height: 1.7; color: #5B6770">{{body}}</p>
+</div>
+
+<div style="background: #FFFFFF; border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 14px; font-weight: 700">اللي بعته</p>
+<sc-for list="{{items}}" as="i" hint-placeholder-count="5">
+<div style="display: flex; align-items: center; gap: 10px; font-size: 14px">
+<span style="{{i.dot}}">{{i.mark}}</span>
+<span style="flex: 1">{{i.label}}</span>
+<sc-if value="{{i.fix}}" hint-placeholder-val="{{ false }}">
+<a href="CVehicle.dc.html" style="font-size: 13px; font-weight: 700; color: #C1121F">صوّرها تاني</a>
+</sc-if>
+</div>
+</sc-for>
+</div>
+
+<div style="flex: 1"></div>
+
+<sc-if value="{{approved}}" hint-placeholder-val="{{ false }}">
+<a href="CHome.dc.html" style="height: 56px; display: flex; align-items: center; justify-content: center; background: #FFB703; border-radius: 16px; font-size: 17px; font-weight: 800; color: #3A2A00; text-decoration: none">يلا نبدأ الشغل</a>
+</sc-if>
+<sc-if value="{{notApproved}}" hint-placeholder-val="{{ true }}">
+<a href="#" style="height: 52px; display: flex; align-items: center; justify-content: center; gap: 8px; background: #FFFFFF; border: 1px solid #D9D6CE; border-radius: 16px; font-size: 15px; font-weight: 700; color: #1F2A30; text-decoration: none">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F4C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg>
+كلّم الإدارة</a>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { s: 'wait' }; }
+  renderVals() {
+    const s = this.state.s;
+    const tb = (on) => 'height: 36px; border: none; border-radius: 9px; font-family: Cairo, sans-serif; font-size: 12px; font-weight: 700; cursor: pointer; ' + (on ? 'background: #FFFFFF; color: #0F4C5C;' : 'background: transparent; color: #5B6770;');
+    const conf = {
+      wait: { t: 'بياناتك عند الإدارة', b: 'هنراجعها ونكلّمك على رقمك خلال [المدة]. هيوصلك إشعار أول ما حسابك يتفعّل.', g: '…', ring: '#FFF1CC', core: '#FFB703', fg: '#3A2A00' },
+      fix: { t: 'محتاجين حاجة صغيرة', b: 'صورة ضهر البطاقة مش واضحة. صوّرها تاني في مكان فيه نور.', g: '!', ring: '#FBE3E4', core: '#E63946', fg: '#FFFFFF' },
+      ok: { t: 'حسابك اتفعّل، أهلاً بيك', b: 'تقدر تبدأ تستقبل أوردرات من دلوقتي.', g: '✓', ring: '#DDF1EE', core: '#2A9D8F', fg: '#FFFFFF' }
+    }[s];
+    const list = ['صورتك الشخصية', 'بياناتك والعنوان', 'البطاقة – الوش', 'البطاقة – الضهر', 'العربية ولونها وصورتها'];
+    return {
+      tabs: [['wait', 'قيد المراجعة'], ['fix', 'محتاجين تعديل'], ['ok', 'اتقبل']].map((x) => ({ label: x[1], style: tb(s === x[0]), pick: () => this.setState({ s: x[0] }) })),
+      title: conf.t, body: conf.b, glyph: conf.g,
+      ringStyle: 'width: 96px; height: 96px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: ' + conf.ring + ';',
+      coreStyle: 'width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: 800; background: ' + conf.core + '; color: ' + conf.fg + ';',
+      approved: s === 'ok', notApproved: s !== 'ok',
+      items: list.map((l, i) => {
+        const bad = s === 'fix' && i === 3;
+        const done = s === 'ok';
+        return {
+          label: l, fix: bad, mark: bad ? '!' : '✓',
+          dot: 'width: 24px; height: 24px; flex-shrink: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; ' + (bad ? 'background: #FBE3E4; color: #A32D2D;' : done ? 'background: #2A9D8F; color: #FFFFFF;' : 'background: #E1EEF0; color: #0F4C5C;')
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

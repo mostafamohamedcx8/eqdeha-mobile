@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>اقضيها – طلباتي</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0F4C5C}a:hover{color:#0A3540}
+</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F5F0; font-family: 'Cairo', sans-serif; color: #1F2A30; display: flex; flex-direction: column; overflow: hidden">
+
+<div style="background: #0F4C5C; padding: 50px 16px 16px; display: flex; flex-direction: column; gap: 14px">
+<h1 style="margin: 0; font-size: 22px; font-weight: 800; color: #FFFFFF">طلباتي</h1>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 4px; background: #1A5E70; border-radius: 12px">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+<button type="button" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}</button>
+</sc-for>
+</div>
+</div>
+
+<div style="flex: 1; overflow-y: auto; overflow-x: hidden; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{orders}}" as="o" hint-placeholder-count="3">
+<div style="background: #FFFFFF; border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: flex-start; gap: 10px">
+<span style="{{o.iconStyle}}">{{o.glyph}}</span>
+<span style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+<span style="font-size: 15px; font-weight: 800; color: #1F2A30">{{o.title}}</span>
+<span style="font-size: 12px; color: #5B6770">أوردر {{o.id}} · {{o.date}}</span>
+</span>
+<span style="{{o.pillStyle}}">{{o.status}}</span>
+</div>
+<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #5B6770">{{o.detail}}</p>
+<div style="display: flex; align-items: center; justify-content: space-between; padding-top: 8px; border-top: 1px solid #EFECE4">
+<span style="display: flex; flex-direction: column">
+<span style="font-size: 11px; color: #8A949A">{{o.totalLabel}}</span>
+<span style="font-size: 17px; font-weight: 800; color: #1F2A30">{{o.total}}</span>
+</span>
+<span style="display: flex; gap: 6px">
+<sc-if value="{{o.hasSecondary}}" hint-placeholder-val="{{ false }}">
+<a href="{{o.secondaryHref}}" style="height: 38px; display: flex; align-items: center; padding: 0 12px; background: #FFFFFF; border: 1px solid #D9D6CE; border-radius: 10px; font-size: 13px; font-weight: 700; color: #1F2A30; text-decoration: none">{{o.secondary}}</a>
+</sc-if>
+<a href="{{o.primaryHref}}" style="height: 38px; display: flex; align-items: center; padding: 0 14px; background: #FFB703; border-radius: 10px; font-size: 13px; font-weight: 800; color: #3A2A00; text-decoration: none">{{o.primary}}</a>
+</span>
+</div>
+</div>
+</sc-for>
+<sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
+<div style="padding: 48px 16px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+<p style="margin: 0; font-size: 16px; font-weight: 700">مفيش طلبات هنا</p>
+<a href="Home.dc.html" style="margin-top: 6px; padding: 10px 18px; background: #FFB703; border-radius: 12px; font-size: 14px; font-weight: 700; color: #3A2A00; text-decoration: none">اطلب حاجة</a>
+</div>
+</sc-if>
+</div>
+
+<nav style="display: flex; justify-content: space-around; padding: 10px 12px 26px; background: #FFFFFF; border-top: 1px solid #E6E2D8">
+<a href="Home.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 64px; text-decoration: none; color: #5B6770">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B6770" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"></path></svg>
+<span style="font-size: 12px; font-weight: 600">الرئيسية</span>
+</a>
+<a href="Orders.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 64px; text-decoration: none; color: #0F4C5C">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F4C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 9h6M9 13h6M9 17h3"></path></svg>
+<span style="font-size: 12px; font-weight: 700">طلباتي</span>
+</a>
+<a href="Account.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 64px; text-decoration: none; color: #5B6770">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B6770" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg>
+<span style="font-size: 12px; font-weight: 600">حسابي</span>
+</a>
+</nav>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { tab: 'now' }; }
+  renderVals() {
+    const P = (bg, fg) => 'flex-shrink: 0; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; background: ' + bg + '; color: ' + fg + ';';
+    const I = (bg, fg) => 'width: 42px; height: 42px; flex-shrink: 0; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 800; background: ' + bg + '; color: ' + fg + ';';
+    const data = {
+      now: [
+        { id: '#١٠٤٢', date: 'النهارده ٢:٣٠ م', g: 'م', title: 'من المحلات · محلين', detail: 'مشويات أبو علي، سوبر ماركت الأمانة · المندوب محمود في الطريق للمحل', status: 'في الطريق', pill: P('#E1EEF0', '#0F4C5C'), icon: I('#E1EEF0', '#0F4C5C'), totalLabel: 'التوصيل', total: '٢٠ ج', primary: 'تابع الأوردر', primaryHref: 'Tracking.dc.html', secondary: 'شات', secondaryHref: 'Chat.dc.html' },
+        { id: '#١٠٤٣', date: 'النهارده ٢:٥٠ م', g: '؟', title: 'أي حاجة', detail: 'سجاير وشيبسي ومية · مستني عروض المناديب', status: 'بيدوّر على مندوب', pill: P('#FFF1CC', '#5C4300'), icon: I('#FFF1CC', '#8A5A00'), totalLabel: 'عرضك للتوصيل', total: '١٥ ج', primary: 'شوف العروض', primaryHref: 'Offers.dc.html', secondary: '', secondaryHref: '' }
+      ],
+      past: [
+        { id: '#١٠٣٨', date: 'أمس ٨:٢٠ م', g: 'م', title: 'من المحلات · محل واحد', detail: 'صيدلية الشفاء · المندوب كريم', status: 'اتسلّم', pill: P('#DDF1EE', '#1B6B61'), icon: I('#F1EFE8', '#5B6770'), totalLabel: 'الإجمالي', total: '١١٥ ج', primary: 'الفاتورة', primaryHref: 'FinalInvoice.dc.html', secondary: '', secondaryHref: '' },
+        { id: '#١٠٣٥', date: '٣ نوفمبر', g: 'م', title: 'من المحلات · ٣ محلات', detail: 'فكهاني الحاج سيد، جزارة الإخلاص، مخبز العيلة · المندوب محمود', status: 'اتسلّم', pill: P('#DDF1EE', '#1B6B61'), icon: I('#F1EFE8', '#5B6770'), totalLabel: 'الإجمالي', total: '٤٢٠ ج', primary: 'اطلب تاني', primaryHref: 'ShopOrder.dc.html', secondary: 'الفاتورة', secondaryHref: 'FinalInvoice.dc.html' },
+        { id: '#١٠٣١', date: '١ نوفمبر', g: '؟', title: 'أي حاجة', detail: 'شنطة من عند البواب · المندوب أحمد · لسه مقيّمتوش', status: 'اتسلّم', pill: P('#DDF1EE', '#1B6B61'), icon: I('#F1EFE8', '#5B6770'), totalLabel: 'الإجمالي', total: '٢٠ ج', primary: 'قيّم المندوب', primaryHref: 'Delivered.dc.html', secondary: 'الفاتورة', secondaryHref: 'FinalInvoice.dc.html' }
+      ],
+      cancel: [
+        { id: '#١٠٣٩', date: 'أمس ٦:١٠ م', g: '×', title: 'من المحلات · محل واحد', detail: 'إنت لغيته قبل أول فاتورة · السبب: اتأخر', status: 'ملغي', pill: P('#FBE3E4', '#A32D2D'), icon: I('#FBE3E4', '#A32D2D'), totalLabel: 'اتدفع', total: '٠ ج', primary: 'اطلب تاني', primaryHref: 'ShopOrder.dc.html', secondary: '', secondaryHref: '' }
+      ]
+    };
+    const tab = this.state.tab;
+    const tb = (on) => 'height: 36px; border: none; border-radius: 9px; font-family: Cairo, sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; ' + (on ? 'background: #FFFFFF; color: #0F4C5C;' : 'background: transparent; color: #CFE6EA;');
+    const list = data[tab];
+    return {
+      tabs: [['now', 'الحالية (٢)'], ['past', 'السابقة'], ['cancel', 'الملغية']].map((x) => ({ label: x[1], style: tb(tab === x[0]), pick: () => this.setState({ tab: x[0] }) })),
+      empty: list.length === 0,
+      orders: list.map((o) => ({
+        id: o.id, date: o.date, glyph: o.g, title: o.title, detail: o.detail, status: o.status,
+        pillStyle: o.pill, iconStyle: o.icon, totalLabel: o.totalLabel, total: o.total,
+        primary: o.primary, primaryHref: o.primaryHref,
+        secondary: o.secondary, secondaryHref: o.secondaryHref, hasSecondary: !!o.secondary
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

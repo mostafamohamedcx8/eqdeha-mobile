@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>اقضيها للمناديب – الأوردرات</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0F4C5C}a:hover{color:#0A3540}
+</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F5F0; font-family: 'Cairo', sans-serif; color: #1F2A30; display: flex; flex-direction: column; overflow: hidden">
+
+<div style="background: #0F4C5C; padding: 48px 16px 16px; display: flex; flex-direction: column; gap: 12px; border-radius: 0 0 26px 26px">
+<div style="display: flex; align-items: center; gap: 10px">
+<span style="width: 44px; height: 44px; border-radius: 50%; background: #E1EEF0; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; color: #0F4C5C">م</span>
+<div style="flex: 1; display: flex; flex-direction: column">
+<span style="font-size: 12px; color: #CFE6EA">أهلاً يا</span>
+<span style="font-size: 18px; font-weight: 800; color: #FFFFFF">محمود</span>
+</div>
+<a href="CPoints.dc.html" aria-label="نقاطك ٦٤٠ نقطة" style="height: 38px; display: flex; align-items: center; gap: 4px; padding: 0 10px; border-radius: 999px; background: #1A5E70; text-decoration: none; font-size: 13px; font-weight: 800; color: #FFFFFF"><svg width="16" height="16" viewBox="0 0 24 24" fill="#FFB703" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>٦٤٠</a>
+<button type="button" onClick="{{toggleOnline}}" style="{{onlineStyle}}"><span style="{{onlineDot}}"></span>{{onlineLabel}}</button>
+</div>
+<a href="CWallet.dc.html" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; text-decoration: none">
+<span style="padding: 10px 12px; background: #1A5E70; border-radius: 14px; display: flex; flex-direction: column">
+<span style="font-size: 12px; color: #CFE6EA">أرباحك النهارده</span>
+<span style="font-size: 20px; font-weight: 800; color: #FFFFFF">٧٠ ج</span>
+<span style="font-size: 11px; color: #CFE6EA">الأسبوع: ٤٩٠ ج</span>
+</span>
+<span style="padding: 10px 12px; background: #1A5E70; border-radius: 14px; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 12px; color: #CFE6EA">عليك للتطبيق</span>
+<span style="font-size: 20px; font-weight: 800; color: {{debtColor}}">{{debt}} ج</span>
+<span style="height: 6px; border-radius: 3px; background: #0F4C5C; overflow: hidden; display: flex"><span style="{{debtBar}}"></span></span>
+<span style="font-size: 11px; color: #CFE6EA">الحساب بيقف عند −١٠٠</span>
+</span>
+</a>
+</div>
+
+<div style="padding: 12px 16px 0">
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 4px; background: #E6E2D8; border-radius: 12px">
+<sc-for list="{{modes}}" as="m" hint-placeholder-count="3">
+<button type="button" onClick="{{m.pick}}" style="{{m.style}}">{{m.label}}</button>
+</sc-for>
+</div>
+</div>
+
+<div style="flex: 1; overflow-y: auto; overflow-x: hidden; padding: 12px 16px 16px; display: flex; flex-direction: column; gap: 12px">
+
+<sc-if value="{{suspended}}" hint-placeholder-val="{{ false }}">
+<div style="background: #FBE3E4; border: 1px solid #E63946; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-size: 17px; font-weight: 800; color: #A32D2D">حسابك واقف مؤقتاً</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: #791F1F">وصلت لـ −١٠٠ ج عمولة. سدّدها وارفع صورة التحويل، وهيتفتحلك علطول سلفة ٥٠ ج تكمّل بيها شغل لحد ما الإدارة تأكد.</p>
+<a href="CWallet.dc.html" style="height: 48px; display: flex; align-items: center; justify-content: center; background: #E63946; border-radius: 12px; font-size: 15px; font-weight: 800; color: #FFFFFF; text-decoration: none">سدّد دلوقتي</a>
+</div>
+</sc-if>
+
+<sc-if value="{{busy}}" hint-placeholder-val="{{ false }}">
+<a href="CChat.dc.html" style="background: #FFFFFF; border: 2px solid #0F4C5C; border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: #1F2A30">
+<span style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; font-weight: 800">أوردرك الحالي #١٠٤٢</span><span style="padding: 2px 10px; border-radius: 999px; background: #E1EEF0; font-size: 12px; font-weight: 700; color: #0F4C5C">في الطريق للمحل</span></span>
+<span style="font-size: 13px; color: #5B6770">مشويات أبو علي، سوبر ماركت الأمانة · العميل أحمد</span>
+<span style="font-size: 13px; font-weight: 700; color: #0F4C5C">افتح الشات ←</span>
+</a>
+<div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; background: #FFF4D6; border-radius: 14px">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A5A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #5C4300">تقدر تقبل أوردر جديد بعد ما تستلم الحاجة من المحل في أوردرك الحالي.</p>
+</div>
+</sc-if>
+
+<sc-if value="{{showList}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 0; font-size: 14px; font-weight: 700; color: #1F2A30">أوردرات جنبك (٣)</p>
+
+<div style="background: #FFFFFF; border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: center">
+<span style="padding: 2px 10px; border-radius: 999px; background: #E1EEF0; font-size: 12px; font-weight: 700; color: #0F4C5C">سعر ثابت · من المحلات</span>
+<span style="font-size: 12px; color: #5B6770">من دقيقة</span>
+</div>
+<div style="display: flex; gap: 10px">
+<div style="display: flex; flex-direction: column; align-items: center; padding-top: 6px"><span style="width: 10px; height: 10px; border-radius: 50%; border: 3px solid #0F4C5C"></span><span style="flex: 1; width: 2px; background: #D9D6CE; margin: 3px 0"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFB703"></span></div>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 8px">
+<span style="display: flex; flex-direction: column"><span style="font-size: 15px; font-weight: 700">مشويات أبو علي + سوبر ماركت الأمانة</span><span style="font-size: 12px; color: #5B6770">محلين · ش. الجمهورية · على بعد ٤٠٠ م</span></span>
+<span style="display: flex; flex-direction: column"><span style="font-size: 14px; font-weight: 700">ش. الجمهورية، عمارة ١٢</span><span style="font-size: 12px; color: #5B6770">١٫٢ كم من المحل</span></span>
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid #EFECE4">
+<span style="display: flex; flex-direction: column"><span style="font-size: 20px; font-weight: 800">٢٠ ج</span><span style="font-size: 11px; color: #5B6770">ليك ١٤ ج بعد العمولة</span></span>
+<sc-if value="{{canAccept}}" hint-placeholder-val="{{ true }}">
+<a href="CChat.dc.html" style="height: 46px; display: flex; align-items: center; padding: 0 22px; background: #FFB703; border-radius: 12px; font-size: 15px; font-weight: 800; color: #3A2A00; text-decoration: none">اقبل وابدأ</a>
+</sc-if>
+<sc-if value="{{locked}}" hint-placeholder-val="{{ false }}">
+<span style="height: 46px; display: flex; align-items: center; padding: 0 16px; background: #E9E5DC; border-radius: 12px; font-size: 13px; font-weight: 700; color: #6E6A61">استلم أوردرك الأول</span>
+</sc-if>
+</div>
+</div>
+
+<div style="background: #FFFFFF; border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: center">
+<span style="padding: 2px 10px; border-radius: 999px; background: #FFF1CC; font-size: 12px; font-weight: 700; color: #5C4300">العميل حاطط السعر · أي حاجة</span>
+<span style="font-size: 12px; color: #5B6770">من ٣ دقايق</span>
+</div>
+<span style="font-size: 15px; font-weight: 700; line-height: 1.6">"علبة سجاير وكيس شيبسي وزجاجة مية كبيرة"</span>
+<span style="font-size: 12px; color: #5B6770">من أي مكان قريب ← ش. النصر، عمارة ٤ · ٧٠٠ م</span>
+<div style="display: flex; flex-direction: column; gap: 8px; padding-top: 10px; border-top: 1px solid #EFECE4">
+<span style="display: flex; justify-content: space-between; font-size: 13px; color: #5B6770"><span>العميل عارض</span><span style="font-size: 18px; font-weight: 800; color: #1F2A30">١٥ ج</span></span>
+<sc-if value="{{offerOpen}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; align-items: center; gap: 8px">
+<button type="button" onClick="{{minus}}" aria-label="قلّل" style="width: 42px; height: 42px; background: #F7F5F0; border: 1px solid #D9D6CE; border-radius: 10px; font-size: 20px; font-weight: 800; color: #0F4C5C; cursor: pointer">−</button>
+<span style="flex: 1; text-align: center; font-size: 20px; font-weight: 800">{{offer}} ج</span>
+<button type="button" onClick="{{plus}}" aria-label="زوّد" style="width: 42px; height: 42px; background: #0F4C5C; border: none; border-radius: 10px; font-size: 20px; font-weight: 800; color: #FFFFFF; cursor: pointer">+</button>
+</div>
+<button type="button" onClick="{{send}}" style="height: 46px; background: #FFB703; border: none; border-radius: 12px; font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 800; color: #3A2A00; cursor: pointer">{{sendLabel}}</button>
+</sc-if>
+<sc-if value="{{offerSent}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #E1EEF0; border-radius: 12px">
+<span style="width: 10px; height: 10px; border-radius: 50%; background: #0F4C5C"></span>
+<span style="flex: 1; font-size: 13px; font-weight: 700; color: #0F4C5C">عرضك {{offer}} ج اتبعت، مستني رد العميل</span>
+<button type="button" onClick="{{withdraw}}" style="background: none; border: none; font-family: 'Cairo', sans-serif; font-size: 12px; font-weight: 700; color: #C1121F; cursor: pointer">اسحبه</button>
+</div>
+</sc-if>
+</div>
+</div>
+
+<div style="background: #FFFFFF; border-radius: 18px; padding: 14px; display: flex; align-items: center; gap: 12px">
+<span style="flex: 1; display: flex; flex-direction: column">
+<span style="padding: 2px 10px; align-self: flex-start; border-radius: 999px; background: #E1EEF0; font-size: 12px; font-weight: 700; color: #0F4C5C">سعر ثابت</span>
+<span style="margin-top: 6px; font-size: 15px; font-weight: 700">صيدلية الشفاء</span>
+<span style="font-size: 12px; color: #5B6770">ش. النصر ← ش. المدارس · ٥٠٠ م</span>
+</span>
+<span style="display: flex; flex-direction: column; align-items: center; gap: 6px">
+<span style="font-size: 18px; font-weight: 800">١٥ ج</span>
+<sc-if value="{{canAccept}}" hint-placeholder-val="{{ true }}">
+<a href="CChat.dc.html" style="height: 40px; display: flex; align-items: center; padding: 0 16px; background: #FFB703; border-radius: 10px; font-size: 14px; font-weight: 800; color: #3A2A00; text-decoration: none">اقبل</a>
+</sc-if>
+</span>
+</div>
+</sc-if>
+
+</div>
+
+<nav style="display: flex; justify-content: space-around; padding: 10px 12px 26px; background: #FFFFFF; border-top: 1px solid #E6E2D8">
+<a href="CHome.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 64px; text-decoration: none; color: #0F4C5C">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F4C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 9h6M9 13h6M9 17h3"></path></svg>
+<span style="font-size: 12px; font-weight: 700">الأوردرات</span>
+</a>
+<a href="CWallet.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 64px; text-decoration: none; color: #5B6770">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B6770" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7a2 2 0 0 1 2-2h11v4"></path><path d="M4 7v11a2 2 0 0 0 2 2h14V9H6a2 2 0 0 1-2-2"></path></svg>
+<span style="font-size: 12px; font-weight: 600">المحفظة</span>
+</a>
+<a href="CProfile.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 64px; text-decoration: none; color: #5B6770">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B6770" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg>
+<span style="font-size: 12px; font-weight: 600">حسابي</span>
+</a>
+</nav>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { mode: 'free', online: true, offer: 20, sent: false }; }
+  renderVals() {
+    const st = this.state;
+    const toAr = (x) => String(x).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[d]);
+    const tb = (on) => 'height: 36px; border: none; border-radius: 9px; font-family: Cairo, sans-serif; font-size: 12px; font-weight: 700; cursor: pointer; ' + (on ? 'background: #FFFFFF; color: #0F4C5C;' : 'background: transparent; color: #5B6770;');
+    const mode = st.mode;
+    const debtN = mode === 'stop' ? 100 : 45;
+    return {
+      modes: [['free', 'فاضي'], ['busy', 'معاه أوردر'], ['stop', 'موقوف']].map((x) => ({ label: x[1], style: tb(mode === x[0]), pick: () => this.setState({ mode: x[0] }) })),
+      suspended: mode === 'stop',
+      busy: mode === 'busy',
+      showList: mode !== 'stop',
+      canAccept: mode === 'free',
+      locked: mode === 'busy',
+      debt: '−' + toAr(debtN),
+      debtColor: debtN >= 100 ? '#FFB4B4' : '#FFFFFF',
+      debtBar: 'height: 100%; width: ' + debtN + '%; background: ' + (debtN >= 80 ? '#E63946' : '#FFB703') + ';',
+      onlineLabel: st.online ? 'متاح' : 'مش متاح',
+      onlineStyle: 'height: 38px; display: flex; align-items: center; gap: 6px; padding: 0 12px; border: none; border-radius: 999px; font-family: Cairo, sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; ' + (st.online ? 'background: #DDF1EE; color: #1B6B61;' : 'background: #1A5E70; color: #CFE6EA;'),
+      onlineDot: 'width: 10px; height: 10px; border-radius: 50%; background: ' + (st.online ? '#2A9D8F' : '#8A949A') + ';',
+      toggleOnline: () => this.setState({ online: !st.online }),
+      offerOpen: !st.sent, offerSent: st.sent,
+      offer: toAr(st.offer),
+      sendLabel: st.offer === 15 ? 'وافق على ١٥ ج وابدأ' : 'ابعت عرضك ' + toAr(st.offer) + ' ج',
+      plus: () => this.setState({ offer: st.offer + 5 }),
+      minus: () => this.setState({ offer: Math.max(10, st.offer - 5) }),
+      send: () => { if (mode === 'free') this.setState({ sent: true }); },
+      withdraw: () => this.setState({ sent: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

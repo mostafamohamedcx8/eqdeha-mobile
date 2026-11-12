@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>اقضيها للمناديب – التسليم</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0F4C5C}a:hover{color:#0A3540}
+</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F5F0; font-family: 'Cairo', sans-serif; color: #1F2A30; display: flex; flex-direction: column; overflow: hidden">
+
+<div style="background: #0F4C5C; padding: 48px 14px 14px; display: flex; align-items: center; gap: 10px">
+<a href="CChat.dc.html" aria-label="رجوع" style="width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #1A5E70; text-decoration: none">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+</a>
+<div style="flex: 1; display: flex; flex-direction: column">
+<h1 style="margin: 0; font-size: 19px; font-weight: 700; color: #FFFFFF">سلّم وحصّل</h1>
+<p style="margin: 0; font-size: 12px; color: #CFE6EA">أوردر #١٠٤٢ · أحمد · ش. الجمهورية، عمارة ١٢</p>
+</div>
+</div>
+
+<div style="flex: 1; overflow-y: auto; overflow-x: hidden; padding: 12px; display: flex; flex-direction: column; gap: 12px">
+
+<div style="background: #FFFFFF; border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-size: 14px; font-weight: 700">الفاتورة النهائية</p>
+<div style="display: flex; justify-content: space-between; font-size: 14px; color: #5B6770"><span>مشويات أبو علي</span><span>١٩٥ ج</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px; color: #5B6770"><span>سوبر ماركت الأمانة</span><span>٧٥ ج</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px; color: #5B6770"><span>التوصيل (١٥ + ٥)</span><span>٢٠ ج</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; background: #F7F5F0; border-radius: 12px; margin-top: 4px"><span style="font-size: 15px; font-weight: 800">تحصّل من العميل</span><span style="font-size: 24px; font-weight: 800; color: #0F4C5C">٢٩٠ ج</span></div>
+</div>
+
+<div style="background: #FFFFFF; border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 14px; font-weight: 700">العميل دفع إزاي؟</p>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+<button type="button" onClick="{{pickCash}}" style="{{cashStyle}}">كاش في إيدي</button>
+<button type="button" onClick="{{pickWallet}}" style="{{walletStyle}}">حوّل على محفظتي</button>
+</div>
+<sc-if value="{{isCash}}" hint-placeholder-val="{{ true }}">
+<label style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #F7F5F0; border-radius: 12px; cursor: pointer">
+<input type="checkbox" checked="{{got}}" onChange="{{toggleGot}}" style="width: 22px; height: 22px; accent-color: #2A9D8F; margin: 0">
+<span style="font-size: 14px; font-weight: 600">استلمت ٢٩٠ ج كاش من العميل</span>
+</label>
+</sc-if>
+<sc-if value="{{isWallet}}" hint-placeholder-val="{{ false }}">
+<label style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #F7F5F0; border-radius: 12px; cursor: pointer">
+<input type="checkbox" checked="{{got}}" onChange="{{toggleGot}}" style="width: 22px; height: 22px; accent-color: #2A9D8F; margin: 0">
+<span style="display: flex; flex-direction: column"><span style="font-size: 14px; font-weight: 600">وصلني ٢٩٠ ج على محفظتي</span><span dir="ltr" style="font-size: 12px; color: #5B6770; text-align: right">فودافون كاش · ٠١١ ٢٢٣٣ ٤٤٥٥</span></span>
+</label>
+<p style="margin: 0; font-size: 12px; line-height: 1.6; color: #5B6770">اتأكد إن التحويل وصل قبل ما تسلّم.</p>
+</sc-if>
+</div>
+
+<div style="background: #E1EEF0; border-radius: 16px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span>ليك من التوصيل</span><span style="font-weight: 800; color: #1B6B61">+١٤ ج</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span>عمولة التطبيق (٣٠٪ من ٢٠)</span><span style="font-weight: 800; color: #A32D2D">−٦ ج</span></div>
+<p style="margin: 2px 0 0; font-size: 12px; color: #0F4C5C">العمولة بتتضاف على اللي عليك: من −٤٥ لـ −٥١ ج</p>
+</div>
+
+</div>
+
+<div style="padding: 12px 14px 26px; background: #FFFFFF; border-top: 1px solid #E6E2D8">
+<a href="CHome.dc.html" style="height: 56px; display: flex; align-items: center; justify-content: center; background: #2A9D8F; border-radius: 16px; font-size: 17px; font-weight: 800; color: #FFFFFF; text-decoration: none">تم التسليم</a>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { pay: 'cash', got: true }; }
+  renderVals() {
+    const p = this.state.pay;
+    const opt = (on) => 'height: 48px; border-radius: 12px; font-family: Cairo, sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; ' + (on ? 'background: #0F4C5C; color: #FFFFFF; border: 1px solid #0F4C5C;' : 'background: #FFFFFF; color: #1F2A30; border: 1px solid #D9D6CE;');
+    return {
+      isCash: p === 'cash', isWallet: p === 'wallet',
+      cashStyle: opt(p === 'cash'), walletStyle: opt(p === 'wallet'),
+      pickCash: () => this.setState({ pay: 'cash' }),
+      pickWallet: () => this.setState({ pay: 'wallet' }),
+      got: this.state.got,
+      toggleGot: () => this.setState({ got: !this.state.got })
+    };
+  }
+}
+</script>
+</body>
+</html>

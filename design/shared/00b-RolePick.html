@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>اقضيها – إنت مين؟</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0F4C5C}a:hover{color:#0A3540}
+</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F5F0; font-family: 'Cairo', sans-serif; color: #1F2A30; display: flex; flex-direction: column; overflow: hidden">
+
+<div style="background: #0F4C5C; padding: 60px 24px 44px; display: flex; flex-direction: column; align-items: center; gap: 10px; border-radius: 0 0 36px 36px">
+<svg width="72" height="72" viewBox="0 0 64 64" role="img" aria-label="لوجو اقضيها">
+<rect x="0" y="0" width="64" height="64" rx="16" fill="#FFB703"></rect>
+<path d="M27 13 q2 -4 5 -1 q2 -4 5 0" fill="none" stroke="#0F4C5C" stroke-width="2" stroke-linecap="round"></path>
+<circle cx="32" cy="21" r="8" fill="#F7F5F0" stroke="#0F4C5C" stroke-width="2.2"></circle>
+<circle cx="29" cy="20" r="1.6" fill="#0F4C5C"></circle><circle cx="35" cy="20" r="1.6" fill="#0F4C5C"></circle>
+<ellipse cx="32" cy="25" rx="1.6" ry="1.9" fill="#0F4C5C"></ellipse>
+<path d="M14 27 H50 L47 51 a4 4 0 0 1 -4 3.5 H21 a4 4 0 0 1 -4 -3.5 Z" fill="#0F4C5C"></path>
+<path d="M24 37 a8 8 0 0 0 16 0" fill="none" stroke="#FFB703" stroke-width="2.6" stroke-linecap="round"></path>
+<circle cx="22" cy="27" r="3.2" fill="#F7F5F0" stroke="#0F4C5C" stroke-width="2"></circle><circle cx="42" cy="27" r="3.2" fill="#F7F5F0" stroke="#0F4C5C" stroke-width="2"></circle>
+</svg>
+<p style="margin: 0; font-size: 30px; font-weight: 800; color: #FFFFFF">اقضيها</p>
+<p style="margin: 0; font-size: 15px; color: #CFE6EA">أهلاً بيك، قولّنا إنت مين</p>
+</div>
+
+<div style="flex: 1; padding: 28px 20px 28px; display: flex; flex-direction: column; gap: 14px">
+<h1 style="margin: 0; font-size: 22px; font-weight: 800">هتستخدم التطبيق كـ</h1>
+
+<button type="button" onClick="{{pickCustomer}}" style="{{customerStyle}}">
+<span style="width: 60px; height: 60px; flex-shrink: 0; border-radius: 18px; background: #FFF1CC; display: flex; align-items: center; justify-content: center">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8A5A00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
+</span>
+<span style="flex: 1; display: flex; flex-direction: column; align-items: flex-start; text-align: right">
+<span style="font-size: 18px; font-weight: 800; color: #1F2A30">عميل</span>
+<span style="font-size: 13px; color: #5B6770">عايز أطلب حاجة وتوصلّي لحد البيت</span>
+</span>
+<span style="{{customerRadio}}"></span>
+</button>
+
+<button type="button" onClick="{{pickCourier}}" style="{{courierStyle}}">
+<span style="width: 60px; height: 60px; flex-shrink: 0; border-radius: 18px; background: #E1EEF0; display: flex; align-items: center; justify-content: center">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0F4C5C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="17" r="3"></circle><circle cx="18" cy="17" r="3"></circle><path d="M6 17l4-7h5l3 7M10 10l-1-3H6M15 10l1-3h3"></path></svg>
+</span>
+<span style="flex: 1; display: flex; flex-direction: column; align-items: flex-start; text-align: right">
+<span style="font-size: 18px; font-weight: 800; color: #1F2A30">مندوب</span>
+<span style="font-size: 13px; color: #5B6770">عايز أوصّل طلبات وأكسب من كل مشوار</span>
+</span>
+<span style="{{courierRadio}}"></span>
+</button>
+
+<div style="flex: 1"></div>
+
+<a href="{{signupHref}}" style="height: 56px; display: flex; align-items: center; justify-content: center; background: #FFB703; border-radius: 16px; font-size: 17px; font-weight: 800; color: #3A2A00; text-decoration: none">{{signupLabel}}</a>
+<a href="Login.dc.html" style="height: 52px; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: 1.5px solid #0F4C5C; border-radius: 16px; font-size: 16px; font-weight: 700; color: #0F4C5C; text-decoration: none">عندي حساب، تسجيل الدخول</a>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { role: 'customer' }; }
+  renderVals() {
+    const r = this.state.role;
+    const card = (on) => 'display: flex; align-items: center; gap: 14px; padding: 16px; border-radius: 20px; cursor: pointer; font-family: Cairo, sans-serif; ' + (on ? 'background: #FFFFFF; border: 2px solid #0F4C5C;' : 'background: #FFFFFF; border: 1px solid #E6E2D8;');
+    const radio = (on) => 'width: 24px; height: 24px; flex-shrink: 0; box-sizing: border-box; border-radius: 50%; ' + (on ? 'border: 7px solid #0F4C5C; background: #FFFFFF;' : 'border: 2px solid #D9D6CE;');
+    return {
+      customerStyle: card(r === 'customer'), courierStyle: card(r === 'courier'),
+      customerRadio: radio(r === 'customer'), courierRadio: radio(r === 'courier'),
+      pickCustomer: () => this.setState({ role: 'customer' }),
+      pickCourier: () => this.setState({ role: 'courier' }),
+      signupHref: r === 'courier' ? 'CPhone.dc.html' : 'Main.dc.html',
+      signupLabel: r === 'courier' ? 'سجّل كمندوب' : 'إنشاء حساب جديد'
+    };
+  }
+}
+</script>
+</body>
+</html>

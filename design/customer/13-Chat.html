@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>اقضيها – الشات</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0F4C5C}a:hover{color:#0A3540}
+input::placeholder{color:#8A949A}
+</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F5F0; font-family: 'Cairo', sans-serif; color: #1F2A30; display: flex; flex-direction: column; overflow: hidden">
+
+<div style="background: #0F4C5C; padding: 50px 16px 16px; display: flex; align-items: center; gap: 12px">
+<a href="Tracking.dc.html" aria-label="رجوع" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #1A5E70; text-decoration: none">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+</a>
+<span style="width: 44px; height: 44px; border-radius: 50%; background: #E1EEF0; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; color: #0F4C5C">م</span>
+<div style="flex: 1; display: flex; flex-direction: column">
+<h1 style="margin: 0; font-size: 17px; font-weight: 700; color: #FFFFFF">محمود – المندوب</h1>
+<p style="margin: 0; font-size: 12px; color: #CFE6EA">أوردر #١٠٤٢ · في المحل دلوقتي</p>
+</div>
+<a href="tel:0000000000" aria-label="اتصل بالمندوب" style="width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; border-radius: 14px; background: #2A9D8F; text-decoration: none">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg>
+</a>
+</div>
+
+<div style="flex: 1; overflow-y: auto; overflow-x: hidden; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+
+<span style="align-self: center; padding: 4px 12px; background: #E6E2D8; border-radius: 999px; font-size: 12px; color: #5B6770">محمود قبل الأوردر · ٢:٣٠ م</span>
+
+<div style="align-self: flex-end; max-width: 78%; padding: 10px 14px; background: #FFFFFF; border-radius: 18px 18px 18px 4px; font-size: 15px; line-height: 1.6">أهلاً يا أستاذ أحمد، أنا في الطريق لمشويات أبو علي</div>
+<div style="align-self: flex-start; max-width: 78%; padding: 10px 14px; background: #0F4C5C; border-radius: 18px 18px 4px 18px; font-size: 15px; line-height: 1.6; color: #FFFFFF">تمام، ياريت الكفتة من غير بصل</div>
+
+<div style="align-self: flex-end; max-width: 78%; padding: 6px; background: #FFFFFF; border-radius: 18px 18px 18px 4px; display: flex; flex-direction: column; gap: 6px">
+<div style="width: 220px; height: 150px; border-radius: 14px; background: #E8DCCB; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#8A6A3A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M21 16l-5-5-9 8"></path></svg>
+<span style="font-size: 12px; color: #6B5230">صورة من المندوب</span>
+</div>
+<span style="padding: 0 8px 4px; font-size: 15px; line-height: 1.6">الفراخ المشوية خلصت، ينفع ربع فراخ بانيه بدلها؟</span>
+</div>
+
+<sc-for list="{{msgs}}" as="m" hint-placeholder-count="1">
+<div style="align-self: flex-start; max-width: 78%; padding: 10px 14px; background: #0F4C5C; border-radius: 18px 18px 4px 18px; font-size: 15px; line-height: 1.6; color: #FFFFFF">{{m.text}}</div>
+</sc-for>
+
+</div>
+
+<div style="padding: 10px 12px 28px; background: #FFFFFF; border-top: 1px solid #E6E2D8; display: flex; align-items: center; gap: 8px">
+<button type="button" aria-label="صوّر وابعت" style="width: 44px; height: 44px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #F7F5F0; border: none; border-radius: 12px; cursor: pointer">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F4C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+</button>
+<button type="button" aria-label="ابعت صورة من المعرض" style="width: 44px; height: 44px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #F7F5F0; border: none; border-radius: 12px; cursor: pointer">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F4C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M21 16l-5-5-9 8"></path></svg>
+</button>
+<label for="msg" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">اكتب رسالة</label>
+<input id="msg" type="text" value="{{draft}}" onChange="{{onType}}" placeholder="اكتب رسالة..." style="flex: 1; min-width: 0; height: 44px; box-sizing: border-box; padding: 0 14px; background: #F7F5F0; border: 1px solid #D9D6CE; border-radius: 22px; font-family: 'Cairo', sans-serif; font-size: 15px; color: #1F2A30; outline: none">
+<button type="button" onClick="{{send}}" aria-label="ابعت" style="width: 44px; height: 44px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #FFB703; border: none; border-radius: 50%; cursor: pointer">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3A2A00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 4L4 11l7 2 2 7z"></path></svg>
+</button>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { draft: 'ماشي، هات البانيه', msgs: [] }; }
+  renderVals() {
+    const st = this.state;
+    return {
+      draft: st.draft,
+      msgs: st.msgs.map((t) => ({ text: t })),
+      onType: (e) => this.setState({ draft: e.target.value }),
+      send: () => { const t = (st.draft || '').trim(); if (t) this.setState({ msgs: st.msgs.concat([t]), draft: '' }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>اقضيها – متابعة الأوردر</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0F4C5C}a:hover{color:#0A3540}
+</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F5F0; font-family: 'Cairo', sans-serif; color: #1F2A30; display: flex; flex-direction: column; overflow: hidden">
+
+<div style="background: #0F4C5C; padding: 50px 16px 20px; display: flex; flex-direction: column; gap: 14px; border-radius: 0 0 28px 28px">
+<div style="display: flex; align-items: center; gap: 12px">
+<a href="Home.dc.html" aria-label="رجوع" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #1A5E70; text-decoration: none">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+</a>
+<div style="flex: 1; display: flex; flex-direction: column">
+<h1 style="margin: 0; font-size: 20px; font-weight: 700; color: #FFFFFF">أوردر #١٠٤٢</h1>
+<p style="margin: 0; font-size: 12px; color: #CFE6EA">{{headerStatus}}</p>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #FFFFFF; border-radius: 18px">
+<span style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 50%; background: #E1EEF0; display: flex; align-items: center; justify-content: center; font-size: 21px; font-weight: 800; color: #0F4C5C">م</span>
+<span style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+<span style="font-size: 16px; font-weight: 700; color: #1F2A30">محمود سعيد</span>
+<span style="display: flex; align-items: center; gap: 4px; font-size: 12px; color: #5B6770">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="#FFB703" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg>
+٤٫٩ · موتوسيكل أحمر · ٢١٠ مشوار</span>
+<a href="CourierReviews.dc.html" style="font-size: 12px; font-weight: 700; color: #0F4C5C">شوف التقييمات</a>
+</span>
+<a href="Chat.dc.html" aria-label="شات مع المندوب" style="width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; border-radius: 14px; background: #E1EEF0; text-decoration: none; position: relative">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F4C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg>
+<span style="position: absolute; top: -4px; left: -4px; min-width: 20px; height: 20px; border-radius: 10px; background: #E63946; font-size: 11px; font-weight: 800; color: #FFFFFF; display: flex; align-items: center; justify-content: center">٢</span>
+</a>
+<a href="tel:0000000000" aria-label="اتصل بالمندوب" style="width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; border-radius: 14px; background: #2A9D8F; text-decoration: none">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg>
+</a>
+</div>
+</div>
+
+<div style="flex: 1; overflow-y: auto; overflow-x: hidden; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; padding: 4px; background: #E6E2D8; border-radius: 12px">
+<button type="button" onClick="{{showBefore}}" style="{{beforeTab}}">قبل أي فاتورة</button>
+<button type="button" onClick="{{showAfter}}" style="{{afterTab}}">بعد أول فاتورة</button>
+</div>
+
+<sc-if value="{{after}}" hint-placeholder-val="{{ false }}">
+<a href="Invoice.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 14px; background: #FFF1CC; border: 1px solid #FFB703; border-radius: 16px; text-decoration: none">
+<span style="width: 42px; height: 42px; flex-shrink: 0; border-radius: 12px; background: #FFB703; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3A2A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"></path><path d="M9 8h6M9 12h6"></path></svg>
+</span>
+<span style="flex: 1; display: flex; flex-direction: column">
+<span style="font-size: 15px; font-weight: 800; color: #3A2A00">فاتورة جديدة من مشويات أبو علي</span>
+<span style="font-size: 13px; color: #5C4300">١٩٥ ج · المندوب اشترى أول حاجة</span>
+</span>
+<span style="font-size: 13px; font-weight: 800; color: #3A2A00">شوفها</span>
+</a>
+</sc-if>
+
+<div style="background: #FFFFFF; border-radius: 18px; padding: 16px; display: flex; flex-direction: column">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="5">
+<div style="display: flex; gap: 12px">
+<div style="display: flex; flex-direction: column; align-items: center">
+<span style="{{s.dotStyle}}">{{s.mark}}</span>
+<sc-if value="{{s.notLast}}" hint-placeholder-val="{{ true }}">
+<span style="{{s.lineStyle}}"></span>
+</sc-if>
+</div>
+<div style="flex: 1; display: flex; flex-direction: column; padding-bottom: 14px">
+<span style="{{s.titleStyle}}">{{s.title}}</span>
+<span style="font-size: 12px; color: #5B6770">{{s.sub}}</span>
+</div>
+</div>
+</sc-for>
+</div>
+
+<div style="background: #FFFFFF; border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; color: #1F2A30">المحلات في الأوردر</p>
+<div style="display: flex; align-items: center; justify-content: space-between; font-size: 14px">
+<span>١. مشويات أبو علي</span>
+<span style="{{shop1Style}}">{{shop1}}</span>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; font-size: 14px">
+<span>٢. سوبر ماركت الأمانة</span>
+<span style="padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; background: #F1EFE8; color: #5B6770">لسه</span>
+</div>
+<div style="height: 1px; background: #E6E2D8"></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px; color: #5B6770"><span>التوصيل</span><span style="font-weight: 700; color: #1F2A30">٢٠ ج</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px; color: #5B6770"><span>الدفع</span><span style="font-weight: 700; color: #1F2A30">للمندوب: كاش أو تحويل</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px; color: #5B6770"><span>محفظة المندوب</span><span dir="ltr" style="font-weight: 700; color: #1F2A30">فودافون كاش ٠١١ ٢٢٣٣ ٤٤٥٥</span></div>
+</div>
+
+<sc-if value="{{before}}" hint-placeholder-val="{{ true }}">
+<button type="button" style="height: 50px; background: #FFFFFF; border: 1px solid #E63946; border-radius: 14px; font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 700; color: #C1121F; cursor: pointer">إلغاء الأوردر</button>
+<p style="margin: 0; font-size: 12px; color: #5B6770; text-align: center">تقدر تلغي لحد ما المندوب يعمل أول فاتورة. المندوب يقدر يلغي لحد ما يستلم الحاجة من المحل، وساعتها طلبك بيرجع لباقي المناديب أوتوماتيك.</p>
+</sc-if>
+<sc-if value="{{after}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: #F1EFE8; border-radius: 14px">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6770" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+<p style="margin: 0; flex: 1; font-size: 13px; line-height: 1.6; color: #5B6770">مينفعش تلغي دلوقتي لأن المندوب اشترى أول حاجة. لو في مشكلة كلّم المندوب أو <a href="#" style="font-weight: 700">الدعم</a>.</p>
+</div>
+</sc-if>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { after: false }; }
+  renderVals() {
+    const after = this.state.after;
+    const cur = after ? 2 : 1;
+    const data = [
+      { t: 'المندوب قبل الأوردر', s: '٢:٣٠ م' },
+      { t: 'في الطريق للمحلات', s: after ? '٢:٣٤ م' : 'هيوصل مشويات أبو علي خلال ٥ دقايق' },
+      { t: 'بيشتري ويبعت الفواتير', s: after ? 'فاتورة ١ من ٢ وصلت' : 'هتوصلك فاتورة كل محل أول بأول' },
+      { t: 'في الطريق ليك', s: 'وقت الوصول المتوقع ٣:١٥ م' },
+      { t: 'تم التسليم', s: 'وبعدها الدفع والتقييم' }
+    ];
+    const tab = (on) => 'height: 38px; border: none; border-radius: 9px; font-family: Cairo, sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; ' + (on ? 'background: #FFFFFF; color: #0F4C5C;' : 'background: transparent; color: #5B6770;');
+    return {
+      after: after, before: !after,
+      showBefore: () => this.setState({ after: false }),
+      showAfter: () => this.setState({ after: true }),
+      beforeTab: tab(!after), afterTab: tab(after),
+      headerStatus: after ? 'المندوب بيشتري من المحلات' : 'المندوب في الطريق للمحل',
+      shop1: after ? 'الفاتورة وصلت' : 'لسه',
+      shop1Style: 'padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; ' + (after ? 'background: #FFF1CC; color: #5C4300;' : 'background: #F1EFE8; color: #5B6770;'),
+      steps: data.map((d, i) => {
+        const done = i < cur, now = i === cur;
+        return {
+          title: d.t, sub: d.s, notLast: i < data.length - 1, mark: done ? '✓' : '',
+          dotStyle: 'width: 24px; height: 24px; flex-shrink: 0; box-sizing: border-box; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; ' + (done ? 'background: #2A9D8F; color: #FFFFFF;' : now ? 'background: #FFFFFF; border: 6px solid #0F4C5C;' : 'background: #FFFFFF; border: 2px solid #D9D6CE;'),
+          lineStyle: 'flex: 1; width: 2px; min-height: 18px; margin: 2px 0; background: ' + (done ? '#2A9D8F' : '#E6E2D8') + ';',
+          titleStyle: 'font-size: 15px; ' + (now ? 'font-weight: 800; color: #0F4C5C;' : done ? 'font-weight: 700; color: #1F2A30;' : 'font-weight: 600; color: #8A949A;')
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

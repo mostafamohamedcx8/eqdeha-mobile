@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>اقضيها – حسابي</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0F4C5C}a:hover{color:#0A3540}
+input::placeholder{color:#8A949A}
+</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; background: #F7F5F0; font-family: 'Cairo', sans-serif; color: #1F2A30; display: flex; flex-direction: column; overflow: hidden">
+
+<div style="background: #0F4C5C; padding: 50px 16px 22px; display: flex; flex-direction: column; align-items: center; gap: 10px; border-radius: 0 0 28px 28px">
+<div style="align-self: stretch; display: flex; align-items: center; justify-content: space-between">
+<a href="Home.dc.html" aria-label="رجوع" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #1A5E70; text-decoration: none">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+</a>
+<h1 style="margin: 0; font-size: 20px; font-weight: 700; color: #FFFFFF">حسابي</h1>
+<span style="width: 44px"></span>
+</div>
+<button type="button" aria-label="غيّر صورتك" style="position: relative; width: 88px; height: 88px; padding: 0; border-radius: 50%; background: #FFD15C; border: 3px solid #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<span style="font-size: 34px; font-weight: 800; color: #0F4C5C">أ</span>
+<span style="position: absolute; bottom: -2px; left: -2px; width: 30px; height: 30px; border-radius: 50%; background: #FFB703; border: 2px solid #0F4C5C; display: flex; align-items: center; justify-content: center">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3A2A00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"></path><circle cx="12" cy="13" r="3"></circle></svg>
+</span>
+</button>
+<div style="display: flex; flex-direction: column; align-items: center">
+<p style="margin: 0; font-size: 20px; font-weight: 800; color: #FFFFFF">أحمد محمد علي</p>
+<p dir="ltr" style="margin: 0; font-size: 14px; color: #CFE6EA">+20 10 1234 5678</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; align-self: stretch">
+<div style="padding: 8px; background: #1A5E70; border-radius: 12px; text-align: center"><p style="margin: 0; font-size: 18px; font-weight: 800; color: #FFFFFF">١٢</p><p style="margin: 0; font-size: 11px; color: #CFE6EA">أوردر</p></div>
+<a href="Points.dc.html" style="padding: 8px; background: #1A5E70; border-radius: 12px; text-align: center; text-decoration: none"><p style="margin: 0; font-size: 18px; font-weight: 800; color: #FFB703">١٢٠</p><p style="margin: 0; font-size: 11px; color: #CFE6EA">نقطة</p></a>
+<div style="padding: 8px; background: #1A5E70; border-radius: 12px; text-align: center"><p style="margin: 0; font-size: 18px; font-weight: 800; color: #FFFFFF">نوفمبر</p><p style="margin: 0; font-size: 11px; color: #CFE6EA">معانا من</p></div>
+</div>
+</div>
+
+<div style="flex: 1; overflow-y: auto; overflow-x: hidden; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+
+<div style="background: #FFFFFF; border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; justify-content: space-between">
+<h2 style="margin: 0; font-size: 16px; font-weight: 800; color: #1F2A30">بياناتي</h2>
+<button type="button" onClick="{{toggleEdit}}" style="height: 36px; padding: 0 14px; background: {{editBtnBg}}; border: 1px solid #0F4C5C; border-radius: 10px; font-family: 'Cairo', sans-serif; font-size: 13px; font-weight: 700; color: {{editBtnFg}}; cursor: pointer">{{editLabel}}</button>
+</div>
+
+<sc-if value="{{viewing}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span style="color: #5B6770">الاسم</span><span style="font-weight: 700">أحمد محمد علي</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span style="color: #5B6770">الإيميل</span><span dir="ltr" style="font-weight: 700">ahmed@gmail.com</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span style="color: #5B6770">تاريخ الميلاد</span><span style="font-weight: 700">١٢ / ٤ / ١٩٩٥</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span style="color: #5B6770">النوع</span><span style="font-weight: 700">ذكر</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px"><span style="color: #5B6770">رقم تاني</span><span style="font-weight: 600; color: #8A949A">مش متضاف</span></div>
+</div>
+</sc-if>
+
+<sc-if value="{{editing}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600">الاسم بالكامل
+<input type="text" value="أحمد محمد علي" style="height: 46px; box-sizing: border-box; padding: 0 14px; background: #F7F5F0; border: 2px solid #0F4C5C; border-radius: 12px; font-family: 'Cairo', sans-serif; font-size: 15px; color: #1F2A30; outline: none"></label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600">الإيميل
+<input type="email" dir="ltr" value="ahmed@gmail.com" style="height: 46px; box-sizing: border-box; padding: 0 14px; background: #F7F5F0; border: 1px solid #D9D6CE; border-radius: 12px; font-family: 'Cairo', sans-serif; font-size: 15px; color: #1F2A30; text-align: right; outline: none"></label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600">تاريخ الميلاد
+<input type="text" value="١٢ / ٤ / ١٩٩٥" style="height: 46px; box-sizing: border-box; padding: 0 14px; background: #F7F5F0; border: 1px solid #D9D6CE; border-radius: 12px; font-family: 'Cairo', sans-serif; font-size: 15px; color: #1F2A30; outline: none"></label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600">رقم تاني (اختياري)
+<input type="tel" dir="ltr" placeholder="01X XXXX XXXX" style="height: 46px; box-sizing: border-box; padding: 0 14px; background: #F7F5F0; border: 1px solid #D9D6CE; border-radius: 12px; font-family: 'Cairo', sans-serif; font-size: 15px; color: #1F2A30; text-align: right; outline: none"></label>
+<div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #F7F5F0; border-radius: 12px">
+<span style="flex: 1; display: flex; flex-direction: column"><span style="font-size: 13px; font-weight: 600">رقم الموبايل</span><span dir="ltr" style="font-size: 14px; font-weight: 700; text-align: right">+20 10 1234 5678</span></span>
+<a href="Main.dc.html" style="font-size: 13px; font-weight: 700">غيّره بكود واتساب</a>
+</div>
+<button type="button" onClick="{{toggleEdit}}" style="height: 50px; background: #FFB703; border: none; border-radius: 14px; font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: 800; color: #3A2A00; cursor: pointer">احفظ التعديلات</button>
+</div>
+</sc-if>
+</div>
+
+<div style="background: #FFFFFF; border-radius: 18px; padding: 6px 14px; display: flex; flex-direction: column">
+<a href="MapPick.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EFECE4; text-decoration: none; color: #1F2A30"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F4C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg><span style="flex: 1; font-size: 15px; font-weight: 600">عناويني المحفوظة</span><span style="font-size: 13px; color: #5B6770">٢</span></a>
+<a href="Orders.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EFECE4; text-decoration: none; color: #1F2A30"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F4C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 9h6M9 13h6M9 17h3"></path></svg><span style="flex: 1; font-size: 15px; font-weight: 600">طلباتي</span></a>
+<a href="Notifications.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EFECE4; text-decoration: none; color: #1F2A30"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F4C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4z"></path><path d="M10 21h4"></path></svg><span style="flex: 1; font-size: 15px; font-weight: 600">الإشعارات</span></a>
+<a href="#" style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EFECE4; text-decoration: none; color: #1F2A30"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F4C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg><span style="flex: 1; font-size: 15px; font-weight: 600">كلّم الدعم</span></a>
+<a href="Terms.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 12px 0; text-decoration: none; color: #1F2A30"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F4C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"></path><path d="M9 12h6M9 16h6"></path></svg><span style="flex: 1; font-size: 15px; font-weight: 600">الشروط والأحكام</span></a>
+</div>
+
+<a href="Main.dc.html" style="height: 48px; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: 1px solid #E63946; border-radius: 14px; font-size: 15px; font-weight: 700; color: #C1121F; text-decoration: none">تسجيل الخروج</a>
+<a href="#" style="align-self: center; font-size: 12px; color: #5B6770">مسح الحساب</a>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { edit: false }; }
+  renderVals() {
+    const e = this.state.edit;
+    return {
+      viewing: !e, editing: e,
+      editLabel: e ? 'إلغاء' : 'تعديل',
+      editBtnBg: e ? '#FFFFFF' : '#0F4C5C',
+      editBtnFg: e ? '#0F4C5C' : '#FFFFFF',
+      toggleEdit: () => this.setState({ edit: !e })
+    };
+  }
+}
+</script>
+</body>
+</html>
